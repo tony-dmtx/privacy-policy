@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <meta name="description" content="Politique de confidentialite de Trium - Application de jeux d'apero a l'oral">
+  <title>Trium - Politique de confidentialite</title>
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --wood-50: #FAF6F1; --wood-100: #F2E8DE; --wood-200: #E5D3C3;
+      --wood-300: #D4B89E; --wood-400: #C29A74; --wood-500: #A87850;
+      --wood-600: #8B5E3C; --wood-700: #6F4A2E; --wood-800: #523822;
+      --wood-900: #3A2818; --wood-950: #241810;
+      --gold-300: #FCD34D; --gold-400: #FBBF24; --gold-500: #F59E0B;
+      --gold-600: #D97706; --gold-700: #B45309;
+      --cream: #FAF6F1; --error: #C04A2E; --success: #5B8C4A;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Nunito', system-ui, -apple-system, sans-serif;
+      background: var(--wood-950);
+      color: var(--cream);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    .hero {
+      background: linear-gradient(180deg, var(--wood-900) 0%, var(--wood-950) 100%);
+      padding: 60px 24px 40px;
+      text-align: center;
+      border-bottom: 1px solid var(--wood-800);
+    }
+    .hero-icon {
+      width: 72px; height: 72px;
+      margin: 0 auto 16px;
+      border-radius: 50%;
+      background: var(--wood-800);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 32px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    .hero h1 {
+      font-weight: 800;
+      font-size: 28px;
+      color: var(--gold-400);
+      letter-spacing: 1px;
+    }
+    .hero .subtitle {
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--wood-300);
+      margin-top: 8px;
+    }
+    .hero .updated {
+      font-size: 13px;
+      color: var(--wood-400);
+      font-style: italic;
+      margin-top: 4px;
+    }
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+    .card {
+      background: var(--wood-900);
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.2);
+      margin-bottom: 24px;
+    }
+    h2 {
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--gold-400);
+      margin-top: 28px;
+      margin-bottom: 10px;
+      padding-top: 4px;
+    }
+    h2:first-child { margin-top: 0; }
+    h3 {
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--gold-300);
+      margin-top: 18px;
+      margin-bottom: 8px;
+    }
+    p { font-size: 15px; line-height: 1.6; color: var(--cream); margin-bottom: 10px; }
+    ul { list-style: none; padding-left: 16px; margin-bottom: 10px; }
+    ul li {
+      font-size: 15px; line-height: 1.6; color: var(--cream);
+      position: relative; padding-left: 16px; margin-bottom: 4px;
+    }
+    ul li::before {
+      content: '\2022'; color: var(--gold-400); position: absolute;
+      left: 0; font-weight: 700;
+    }
+    .highlight {
+      background: rgba(251, 191, 36, 0.08);
+      border-left: 3px solid var(--gold-500);
+      padding: 16px 20px;
+      border-radius: 0 12px 12px 0;
+      margin: 16px 0;
+    }
+    .highlight p { margin-bottom: 0; }
+    .badge {
+      display: inline-block;
+      background: var(--wood-800);
+      color: var(--gold-300);
+      font-size: 12px; font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 999px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .toc {
+      background: var(--wood-900);
+      border-radius: 20px;
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.2);
+    }
+    .toc h2 { margin-top: 0; margin-bottom: 12px; font-size: 16px; }
+    .toc ol { padding-left: 20px; }
+    .toc li { margin-bottom: 6px; font-size: 14px; }
+    .toc a {
+      color: var(--gold-300); text-decoration: none; font-weight: 600;
+      transition: color 0.2s;
+    }
+    .toc a:hover { color: var(--gold-400); }
+    a { color: var(--gold-400); }
+    .footer {
+      text-align: center;
+      padding: 24px;
+      color: var(--wood-400);
+      font-size: 13px;
+    }
+    .footer a { color: var(--wood-300); text-decoration: none; }
+    .footer a:hover { color: var(--gold-400); }
+    .nav-back {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--wood-800);
+      color: var(--gold-400);
+      font-weight: 700; font-size: 14px;
+      padding: 10px 20px;
+      border-radius: 14px;
+      text-decoration: none;
+      margin-top: 20px;
+      transition: opacity 0.2s;
+    }
+    .nav-back:hover { opacity: 0.85; }
+    .meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .meta-item {
+      background: var(--wood-800);
+      border-radius: 12px;
+      padding: 12px 16px;
+    }
+    .meta-label {
+      font-size: 12px; font-weight: 600; color: var(--wood-400);
+      text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;
+    }
+    .meta-value { font-size: 14px; font-weight: 700; color: var(--cream); }
+    @media (max-width: 600px) {
+      .meta-grid { grid-template-columns: 1fr; }
+      .card { padding: 20px; }
+      .hero { padding: 40px 16px 28px; }
+      .container { padding: 20px 16px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="hero-icon">&#128737;</div>
+    <h1>TRIUM</h1>
+    <p class="subtitle">Politique de confidentialite</p>
+    <p class="updated">Derniere mise a jour : 21 septembre 2026</p>
+  </header>
+
+  <div class="container">
+
+    <div class="toc">
+      <h2>Sommaire</h2>
+      <ol>
+        <li><a href="#presentation">Presentation de Trium</a></li>
+        <li><a href="#responsable">Responsable du traitement</a></li>
+        <li><a href="#donnees">Donnees collectees</a></li>
+        <li><a href="#finalite">Finalite du traitement</a></li>
+        <li><a href="#base-legal">Base legale</a></li>
+        <li><a href="#hebergement">Hebergement des donnees</a></li>
+        <li><a href="#permissions">Permissions de l'appareil</a></li>
+        <li><a href="#partage">Partage et transfert de donnees</a></li>
+        <li><a href="#conservation">Duree de conservation</a></li>
+        <li><a href="#securite">Securite des donnees</a></li>
+        <li><a href="#droits">Vos droits (RGPD)</a></li>
+        <li><a href="#cookies">Cookies et traceurs</a></li>
+        <li><a href="#mineurs">Mineurs</a></li>
+        <li><a href="#modifications">Modifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ol>
+    </div>
+
+    <div class="card">
+
+      <span class="badge">Section 1</span>
+      <h2 id="presentation">1. Presentation de Trium</h2>
+      <p>
+        Trium est une application mobile de jeux d'apero a l'oral, concue pour animer des
+        soirees entre amis et en famille. L'application propose 9 jeux repartis en 3 modes
+        (Decouverte, Creatif, Tactique) qui ne necessitent aucun materiel physique.
+      </p>
+      <p>
+        Cette politique de confidentialite explique quelles donnees personnelles nous
+        collectons, comment nous les utilisons, et quels droits vous disposez conformement
+        au Reglement General sur la Protection des Donnees (RGPD) et a la loi Informatique
+        et Libertes.
+      </p>
+
+      <span class="badge">Section 2</span>
+      <h2 id="responsable">2. Responsable du traitement</h2>
+      <p>Le responsable du traitement des donnees personnelles est :</p>
+      <ul>
+        <li><strong>Application :</strong> Trium</li>
+        <li><strong>Editeur :</strong> Trium App (projet personnel, non commercial)</li>
+        <li><strong>Contact :</strong> accessible depuis les parametres de l'application</li>
+      </ul>
+      <div class="meta-grid">
+        <div class="meta-item">
+          <div class="meta-label">Type d'entite</div>
+          <div class="meta-value">Personne physique (projet personnel)</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Pays d'edition</div>
+          <div class="meta-value">France</div>
+        </div>
+      </div>
+
+      <span class="badge">Section 3</span>
+      <h2 id="donnees">3. Donnees collectees</h2>
+      <div class="highlight">
+        <p>
+          <strong>Trium collecte uniquement votre adresse e-mail</strong> lors de la
+          creation et de l'utilisation de votre compte. Aucune autre donnee personnelle
+          n'est recueillie par l'application.
+        </p>
+      </div>
+      <h3>Donnees collectees automatiquement</h3>
+      <ul>
+        <li><strong>Adresse e-mail :</strong> utilisee pour la creation et l'authentification du compte.</li>
+        <li><strong>Identifiant de session :</strong> stocke localement sur votre appareil pour maintenir votre connexion entre les sessions.</li>
+      </ul>
+      <h3>Donnees NON collectees</h3>
+      <ul>
+        <li>Aucun nom, prenom, age ou date de naissance</li>
+        <li>Aucune donnee de geolocalisation</li>
+        <li>Aucune information de contact (numero de telephone, adresse postale)</li>
+        <li>Aucune donnee de paiement ou bancaire</li>
+        <li>Aucun historique de navigation externe a l'application</li>
+        <li>Aucune donnee biométrique</li>
+      </ul>
+      <h3>Enregistrements audio</h3>
+      <p>
+        Les enregistrements audio realises dans le jeu "Le Narrateur" sont stockes
+        <strong>exclusivement et temporairement sur votre appareil</strong>. Ils ne sont
+        jamais envoyes vers nos serveurs ni stockes dans le cloud. L'enregistrement est
+        supprime des que vous quittez la partie ou lancez une nouvelle partie.
+      </p>
+
+      <span class="badge">Section 4</span>
+      <h2 id="finalite">4. Finalite du traitement</h2>
+      <p>Votre adresse e-mail est utilisee exclusivement pour :</p>
+      <ul>
+        <li>Creer et authentifier votre compte utilisateur.</li>
+        <li>Vous permettre d'acceder a l'application et a ses jeux.</li>
+        <li>Assurer la securite de votre compte (prevention des acces non autorises).</li>
+      </ul>
+      <p>
+        Votre e-mail n'est <strong>jamais vendu, loue ni communique a des tiers</strong>
+        a des fins commerciales ou publicitaires.
+      </p>
+
+      <span class="badge">Section 5</span>
+      <h2 id="base-legal">5. Base legale</h2>
+      <p>
+        Conformement a l'article 6 du RGPD, le traitement de votre adresse e-mail repose
+        sur les bases legales suivantes :
+      </p>
+      <ul>
+        <li><strong>Execution d'un contrat</strong> (article 6-1-b) : creation et gestion de votre compte utilisateur, necessaire pour acceder au service.</li>
+        <li><strong>Interet legitime</strong> (article 6-1-f) : securite du service et prevention des abus.</li>
+      </ul>
+
+      <span class="badge">Section 6</span>
+      <h2 id="hebergement">6. Hebergement des donnees</h2>
+      <p>
+        Les donnees de compte (adresse e-mail et mot de passe chiffre) sont hebergees chez
+        <strong>Supabase Inc.</strong>, notre prestataire d'authentification et de base de
+        donnees.
+      </p>
+      <ul>
+        <li><strong>Fournisseur :</strong> Supabase Inc. (Etats-Unis, adherent au EU-U.S. Data Privacy Framework)</li>
+        <li><strong>Service utilise :</strong> Authentification Supabase (Supabase Auth)</li>
+        <li><strong>Chiffrement :</strong> les mots de passe sont hashes avec l'algorithme bcrypt cote serveur. Aucun mot de passe en clair n'est stocke.</li>
+        <li><strong>Transferts :</strong> toutes les communications entre l'application et les serveurs sont chiffrees via le protocole HTTPS/TLS.</li>
+      </ul>
+      <p>
+        Supabase applique des mesures techniques et organisationnelles appropriees pour
+        proteger les donnees contre les acces non autorises, conformement aux standards
+        de l'industrie et au RGPD.
+      </p>
+
+      <span class="badge">Section 7</span>
+      <h2 id="permissions">7. Permissions de l'appareil</h2>
+      <p>
+        Trium demande les permissions suivantes sur votre appareil Android. Ces
+        permissions ne sont utilisees que pour les fonctionnalites decrites et ne donnent
+        jamais acces a vos donnees personnelles a des tiers.
+      </p>
+      <ul>
+        <li><strong>INTERNET :</strong> connexion aux serveurs Supabase pour l'authentification et la generation de contenu de jeu.</li>
+        <li><strong>RECORD_AUDIO :</strong> enregistrement vocal dans le jeu "Le Narrateur" (mode enregistrement). Active uniquement pendant la partie, l'audio reste sur l'appareil.</li>
+        <li><strong>MODIFY_AUDIO_SETTINGS :</strong> configuration du mode audio pendant l'enregistrement.</li>
+      </ul>
+      <p>
+        Les permissions d'enregistrement audio sont demandees <strong>au moment ou vous
+        activez le mode enregistrement du jeu Le Narrateur</strong>, et non au lancement de
+        l'application. Vous pouvez refuser ces permissions ; les autres jeux fonctionnent
+        sans microphone.
+      </p>
+
+      <span class="badge">Section 8</span>
+      <h2 id="partage">8. Partage et transfert de donnees</h2>
+      <p>
+        Trium ne partage vos donnees personnelles avec aucun tiers a des fins
+        commerciales ou publicitaires. Les seuls transferts de donnees sont les suivants :
+      </p>
+      <ul>
+        <li><strong>Supabase Inc.</strong> : stockage de l'adresse e-mail et du mot de passe chiffre, pour l'authentification.</li>
+        <li><strong>Partage natif Android (optionnel) :</strong> lorsque vous choisissez de partager un enregistrement audio, l'application utilise le menu de partage systeme Android. Vous selectionnez librement l'application destinataire. Aucune donnee n'est partagee sans votre action explicite.</li>
+      </ul>
+      <p>
+        Trium ne vend aucune donnee et n'utilise aucun SDK publicitaire, aucun service
+        d'analytique tiers, ni aucun reseau social integre.
+      </p>
+
+      <span class="badge">Section 9</span>
+      <h2 id="conservation">9. Duree de conservation</h2>
+      <ul>
+        <li><strong>Adresse e-mail et compte :</strong> conserves tant que votre compte est actif. Vous pouvez demander la suppression a tout moment.</li>
+        <li><strong>Enregistrements audio :</strong> supprimes automatiquement a la fin de chaque partie. Aucun stockage permanent.</li>
+        <li><strong>Session locale :</strong> supprimee lorsque vous vous deconnectez ou desinstallez l'application.</li>
+      </ul>
+
+      <span class="badge">Section 10</span>
+      <h2 id="securite">10. Securite des donnees</h2>
+      <p>
+        Nous mettons en oeuvre des mesures techniques appropriees pour proteger vos
+        donnees :
+      </p>
+      <ul>
+        <li><strong>Chiffrement des mots de passe :</strong> hachage bcrypt cote serveur via Supabase Auth.</li>
+        <li><strong>Chiffrement des communications :</strong> protocole HTTPS/TLS pour tous les echanges entre l'application et les serveurs.</li>
+        <li><strong>Acces limite :</strong> seules les clés API publiques (non sensibles) sont integrees dans l'application.</li>
+        <li><strong>Authentification securisee :</strong> gestion des sessions via Supabase avec tokens JWT a expiration courte.</li>
+      </ul>
+
+      <span class="badge">Section 11</span>
+      <h2 id="droits">11. Vos droits (RGPD)</h2>
+      <p>
+        Conformement au Reglement General sur la Protection des Donnees (RGPD) et a la loi
+        Informatique et Libertes, vous disposez des droits suivants concernant vos donnees
+        personnelles :
+      </p>
+      <ul>
+        <li><strong>Droit d'acces</strong> : obtenir une copie de vos donnees personnelles.</li>
+        <li><strong>Droit de rectification</strong> : corriger des donnees inexactes ou incompletes.</li>
+        <li><strong>Droit a l'effacement</strong> : demander la suppression de votre compte et de vos donnees.</li>
+        <li><strong>Droit a la limitation</strong> : demander la suspension du traitement de vos donnees.</li>
+        <li><strong>Droit d'opposition</strong> : vous opposer au traitement de vos donnees.</li>
+        <li><strong>Droit a la portabilite</strong> : recevoir vos donnees dans un format structure.</li>
+        <li><strong>Droit de retirer votre consentement</strong> a tout moment.</li>
+      </ul>
+      <div class="highlight">
+        <p>
+          Pour exercer ces droits, vous pouvez vous deconnecter et supprimer votre compte
+          depuis les parametres de l'application, ou nous contacter directement. Nous
+          repondrons a votre demande dans un delai d'un mois maximum, conformement a la
+          reglementation.
+        </p>
+      </div>
+      <p>
+        Vous avez egalement le droit d'introduire une reclamation aupres de l'autorite de
+        controle competente (en France : la CNIL, <a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a>).
+      </p>
+
+      <span class="badge">Section 12</span>
+      <h2 id="cookies">12. Cookies et traceurs</h2>
+      <p>
+        Trium n'utilise <strong>aucun cookie publicitaire, aucun traceur tiers, et aucun
+        SDK d'analytique</strong>. Le stockage local de l'appareil (localStorage / IndexedDB)
+        est utilise uniquement pour :
+      </p>
+      <ul>
+        <li>Maintenir votre session d'authentification entre les sessions.</li>
+        <li>Sauvegarder les noms des joueurs saisis dans l'application (stockes localement, jamais envoyes vers nos serveurs).</li>
+      </ul>
+
+      <span class="badge">Section 13</span>
+      <h2 id="mineurs">13. Mineurs</h2>
+      <p>
+        Trium est destine aux utilisateurs majeurs. L'application n'est pas concue pour
+        les mineurs et ne collecte sciemment aucune donnee d'utilisateur mineur. Si vous
+        estimez qu'un mineur a cree un compte sans autorisation parentale, vous pouvez
+        nous contacter pour proceder a la suppression immediate du compte et des donnees
+        associees.
+      </p>
+
+      <span class="badge">Section 14</span>
+      <h2 id="modifications">14. Modifications de cette politique</h2>
+      <p>
+        Cette politique de confidentialite peut etre mise a jour pour refleter les
+        evolutions de l'application ou de la reglementation. La date de derniere mise a
+        jour est indiquee en haut de cette page. Nous vous invitons a consulter
+        regulierement cette page pour prendre connaissance des eventuelles
+        modifications.
+      </p>
+
+      <span class="badge">Section 15</span>
+      <h2 id="contact">15. Contact</h2>
+      <p>
+        Pour toute question relative a cette politique de confidentialite, pour exercer
+        vos droits, ou pour demander la suppression de votre compte, vous pouvez :
+      </p>
+      <ul>
+        <li>Acceder aux parametres de l'application et utiliser la fonction de deconnexion / suppression de compte.</li>
+        <li>Consulter cette page a tout moment a l'adresse : <a href="/privacy-policy.html">/privacy-policy.html</a></li>
+      </ul>
+      <p>
+        Cette page est accessible sans connexion et sans compte, conformement aux
+        exigences du Google Play Store.
+      </p>
+
+    </div>
+
+    <a href="/" class="nav-back">&#8592; Retour a l'application</a>
+
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2026 Trium. Tous droits reserves.</p>
+    <p style="margin-top: 8px;">
+      <a href="/privacy-policy.html">Politique de confidentialite</a>
+      &nbsp;&middot;&nbsp;
+      Application sans publicite, sans achat integre
+    </p>
+  </footer>
+
+</body>
+</html>
