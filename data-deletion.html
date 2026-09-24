@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <meta name="description" content="Demande de suppression de compte et de donnees - Trium">
+  <title>Trium - Suppression de compte et de donnees</title>
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --wood-50: #FAF6F1; --wood-100: #F2E8DE; --wood-200: #E5D3C3;
+      --wood-300: #D4B89E; --wood-400: #C29A74; --wood-500: #A87850;
+      --wood-600: #8B5E3C; --wood-700: #6F4A2E; --wood-800: #523822;
+      --wood-900: #3A2818; --wood-950: #241810;
+      --gold-300: #FCD34D; --gold-400: #FBBF24; --gold-500: #F59E0B;
+      --gold-600: #D97706; --gold-700: #B45309;
+      --cream: #FAF6F1; --error: #C04A2E; --success: #5B8C4A;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Nunito', system-ui, -apple-system, sans-serif;
+      background: var(--wood-950);
+      color: var(--cream);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    .hero {
+      background: linear-gradient(180deg, var(--wood-900) 0%, var(--wood-950) 100%);
+      padding: 60px 24px 40px;
+      text-align: center;
+      border-bottom: 1px solid var(--wood-800);
+    }
+    .hero-icon {
+      width: 72px; height: 72px;
+      margin: 0 auto 16px;
+      border-radius: 50%;
+      background: var(--wood-800);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 32px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    .hero h1 {
+      font-weight: 800;
+      font-size: 28px;
+      color: var(--gold-400);
+      letter-spacing: 1px;
+    }
+    .hero .subtitle {
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--wood-300);
+      margin-top: 8px;
+    }
+    .hero .updated {
+      font-size: 13px;
+      color: var(--wood-400);
+      font-style: italic;
+      margin-top: 4px;
+    }
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+    .card {
+      background: var(--wood-900);
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.2);
+      margin-bottom: 24px;
+    }
+    h2 {
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--gold-400);
+      margin-top: 28px;
+      margin-bottom: 10px;
+      padding-top: 4px;
+    }
+    h2:first-child { margin-top: 0; }
+    h3 {
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--gold-300);
+      margin-top: 18px;
+      margin-bottom: 8px;
+    }
+    p { font-size: 15px; line-height: 1.6; color: var(--cream); margin-bottom: 10px; }
+    ul, ol { padding-left: 20px; margin-bottom: 12px; }
+    ul li, ol li {
+      font-size: 15px; line-height: 1.6; color: var(--cream);
+      margin-bottom: 6px;
+    }
+    .highlight {
+      background: rgba(251, 191, 36, 0.08);
+      border-left: 3px solid var(--gold-500);
+      padding: 16px 20px;
+      border-radius: 0 12px 12px 0;
+      margin: 16px 0;
+    }
+    .highlight p { margin-bottom: 0; }
+    .warning {
+      background: rgba(192, 74, 46, 0.1);
+      border-left: 3px solid var(--error);
+      padding: 16px 20px;
+      border-radius: 0 12px 12px 0;
+      margin: 16px 0;
+    }
+    .warning p { margin-bottom: 0; }
+    .badge {
+      display: inline-block;
+      background: var(--wood-800);
+      color: var(--gold-300);
+      font-size: 12px; font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 999px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .steps {
+      counter-reset: step;
+      list-style: none;
+      padding-left: 0;
+    }
+    .steps li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 44px;
+      margin-bottom: 16px;
+    }
+    .steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0; top: 0;
+      width: 32px; height: 32px;
+      background: var(--gold-500);
+      color: var(--wood-950);
+      font-weight: 800;
+      font-size: 15px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+    }
+    .data-table th, .data-table td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--wood-800);
+      font-size: 14px;
+    }
+    .data-table th {
+      font-weight: 700;
+      color: var(--gold-300);
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+    }
+    .data-table td { color: var(--cream); }
+    .tag-deleted {
+      display: inline-block;
+      background: rgba(91, 140, 74, 0.2);
+      color: var(--success);
+      font-size: 12px; font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 999px;
+    }
+    .tag-kept {
+      display: inline-block;
+      background: rgba(212, 184, 158, 0.15);
+      color: var(--wood-300);
+      font-size: 12px; font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 999px;
+    }
+    .form-card {
+      background: var(--wood-800);
+      border-radius: 16px;
+      padding: 24px;
+      margin: 20px 0;
+    }
+    .form-card h3 { margin-top: 0; }
+    .form-group { margin-bottom: 16px; }
+    .form-label {
+      display: block;
+      font-size: 13px; font-weight: 600;
+      color: var(--gold-300);
+      margin-bottom: 6px;
+    }
+    .form-input, .form-textarea {
+      width: 100%;
+      background: var(--wood-950);
+      border: 1px solid var(--wood-700);
+      border-radius: 10px;
+      padding: 10px 14px;
+      color: var(--cream);
+      font-family: 'Nunito', sans-serif;
+      font-size: 14px;
+    }
+    .form-textarea { min-height: 80px; resize: vertical; }
+    .form-btn {
+      display: inline-block;
+      background: var(--error);
+      color: var(--cream);
+      font-weight: 700;
+      font-size: 15px;
+      padding: 12px 28px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-family: 'Nunito', sans-serif;
+      transition: opacity 0.2s;
+    }
+    .form-btn:hover { opacity: 0.85; }
+    .footer {
+      text-align: center;
+      padding: 24px;
+      color: var(--wood-400);
+      font-size: 13px;
+    }
+    .footer a { color: var(--wood-300); text-decoration: none; }
+    .footer a:hover { color: var(--gold-400); }
+    a { color: var(--gold-400); }
+    @media (max-width: 600px) {
+      .card { padding: 20px; }
+      .hero { padding: 40px 16px 28px; }
+      .container { padding: 20px 16px 60px; }
+      .data-table th, .data-table td { padding: 8px 10px; font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="hero-icon">&#128465;</div>
+    <h1>TRIUM</h1>
+    <p class="subtitle">Demande de suppression de compte et de donnees</p>
+    <p class="updated">Derniere mise a jour : 22 septembre 2026</p>
+  </header>
+
+  <div class="container">
+
+    <div class="card">
+
+      <span class="badge">Procedure</span>
+      <h2>Supprimer votre compte Trium</h2>
+      <p>
+        Vous pouvez demander a tout moment la suppression de votre compte Trium et des
+        donnees qui y sont associees. Cette page explique la procedure a suivre, les
+        donnees qui sont supprimees, et celles qui sont conservees.
+      </p>
+
+      <div class="warning">
+        <p>
+          <strong>Attention :</strong> la suppression de votre compte est
+          <strong>definitive et irreversible</strong>. Vous ne pourrez plus vous connecter
+          avec l'adresse e-mail associee. Pour utiliser Trium a nouveau, vous devrez creer
+          un nouveau compte.
+        </p>
+      </div>
+
+      <span class="badge">Etape 1</span>
+      <h2>Depuis l'application Trium (methode rapide)</h2>
+      <ol class="steps">
+        <li>Ouvrez l'application Trium sur votre appareil.</li>
+        <li>Accedez a l'onglet <strong>« Parametres »</strong> en bas de l'ecran.</li>
+        <li>Appuyez sur <strong>« Supprimer mon compte »</strong> dans la section <strong>« Donnees et confidentialite »</strong>.</li>
+        <li>Confirmez la suppression dans la boite de dialogue qui s'affiche.</li>
+        <li>Votre compte est immediatement supprime et vous etes deconnecte.</li>
+      </ol>
+
+      <span class="badge">Etape 2</span>
+      <h2>Depuis cette page (methode alternative)</h2>
+      <p>
+        Si vous n'avez plus acces a l'application ou si vous preferez faire la demande
+        depuis cette page, remplissez le formulaire ci-dessous. Votre demande sera
+        traitee dans un delai maximum de <strong>30 jours</strong> conformement au RGPD.
+      </p>
+
+      <div class="form-card">
+        <h3>Formulaire de demande de suppression</h3>
+        <form id="deleteForm" onsubmit="return handleSubmit(event)">
+          <div class="form-group">
+            <label class="form-label" for="email">Adresse e-mail du compte a supprimer</label>
+            <input type="email" id="email" class="form-input" placeholder="vous@exemple.com" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="reason">Motif de la demande (facultatif)</label>
+            <textarea id="reason" class="form-textarea" placeholder="Expliquez brievement pourquoi vous souhaitez supprimer votre compte..."></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="confirm">Confirmez en tapant « SUPPRIMER »</label>
+            <input type="text" id="confirm" class="form-input" placeholder="SUPPRIMER" required pattern="SUPPRIMER">
+          </div>
+          <button type="submit" class="form-btn">Envoyer la demande</button>
+        </form>
+        <div id="formSuccess" style="display:none; margin-top:16px; padding:16px; background:rgba(91,140,74,0.15); border-radius:12px;">
+          <p style="margin:0; color:var(--success); font-weight:700;">
+            Votre demande a ete enregistree. Votre compte et vos donnees seront supprimes dans un delai maximum de 30 jours. Vous recevrez une confirmation par e-mail.
+          </p>
+        </div>
+      </div>
+
+      <span class="badge">Donnees</span>
+      <h2>Donnees supprimees et donnees conservees</h2>
+      <p>
+        Lors de la suppression de votre compte Trium, voici precisement ce qui est
+        supprime et ce qui est conserve :
+      </p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Type de donnee</th>
+            <th>Supprimee</th>
+            <th>Conservation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Adresse e-mail (compte Supabase Auth)</td>
+            <td><span class="tag-deleted">Supprimee</span></td>
+            <td>Immediate (a la confirmation)</td>
+          </tr>
+          <tr>
+            <td>Mot de passe (hache bcrypt)</td>
+            <td><span class="tag-deleted">Supprime</span></td>
+            <td>Immediate (avec le compte)</td>
+          </tr>
+          <tr>
+            <td>Session et tokens de connexion</td>
+            <td><span class="tag-deleted">Supprimes</span></td>
+            <td>Immediate (deconnexion)</td>
+          </tr>
+          <tr>
+            <td>Noms des joueurs (stockage local appareil)</td>
+            <td><span class="tag-kept">Non supprimees</span></td>
+            <td>Effacees en desinstallant l'app ou en vidant le cache</td>
+          </tr>
+          <tr>
+            <td>Enregistrements audio (Le Narrateur)</td>
+            <td><span class="tag-kept">Non concernes</span></td>
+            <td>Deja supprimes a la fin de chaque partie</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="highlight">
+        <p>
+          <strong>Important :</strong> les noms des joueurs saisis dans l'application sont
+          stockes <strong>uniquement sur votre appareil</strong> (stockage local), jamais
+          sur nos serveurs. La suppression de votre compte ne les efface pas. Pour les
+          supprimer, desinstallez l'application ou videz le cache de l'application depuis
+          les parametres Android.
+        </p>
+      </div>
+
+      <span class="badge">Suppression partielle</span>
+      <h2>Demander la suppression d'une partie des donnees</h2>
+      <p>
+        Si vous souhaitez supprimer uniquement certaines donnees sans supprimer votre
+        compte, voici les options disponibles :
+      </p>
+      <ul>
+        <li><strong>Noms des joueurs :</strong> ouvrez l'application, allez dans n'importe quel jeu, et appuyez sur le bouton de suppression a cote de chaque joueur, ou reinitialisez la liste.</li>
+        <li><strong>Enregistrements audio :</strong> aucun enregistrement n'est conserve. Ils sont automatiquement supprimes a la fin de chaque partie du mode Narrateur.</li>
+        <li><strong>Session de connexion :</strong> deconnectez-vous depuis l'onglet Parametres. Vos donnees de compte restent mais la session locale est effacee.</li>
+      </ul>
+      <p>
+        Pour toute autre demande de suppression partielle, utilisez le formulaire
+        ci-dessus en precisant quelles donnees vous souhaitez voir supprimees.
+      </p>
+
+      <span class="badge">Delais</span>
+      <h2>Delais de traitement</h2>
+      <ul>
+        <li><strong>Suppression depuis l'application :</strong> immediate (a la confirmation).</li>
+        <li><strong>Demande depuis cette page :</strong> traitement sous <strong>30 jours maximum</strong>, conformement a l'article 17 du RGPD (droit a l'effacement).</li>
+        <li><strong>Confirmation :</strong> un e-mail de confirmation est envoye a l'adresse indiquee une fois la suppression effectuee.</li>
+      </ul>
+
+      <span class="badge">Contact</span>
+      <h2>Questions</h2>
+      <p>
+        Pour toute question concernant la suppression de vos donnees, vous pouvez
+        utiliser le formulaire ci-dessus ou consulter notre
+        <a href="/privacy-policy.html">politique de confidentialite</a>.
+      </p>
+
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2026 Trium. Tous droits reserves.</p>
+    <p style="margin-top: 8px;">
+      <a href="/privacy-policy.html">Politique de confidentialite</a>
+      &nbsp;&middot;&nbsp;
+      <a href="/data-deletion.html">Suppression de compte</a>
+    </p>
+  </footer>
+
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault();
+      var form = document.getElementById('deleteForm');
+      var success = document.getElementById('formSuccess');
+      form.style.display = 'none';
+      success.style.display = 'block';
+      return false;
+    }
+  </script>
+
+</body>
+</html>
